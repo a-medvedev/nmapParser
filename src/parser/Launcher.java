@@ -5,6 +5,7 @@
 package parser;
 
 import java.io.File;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -22,10 +23,11 @@ public class Launcher {
             //System.out.println("+++ " + inputFile.toString() + " +++");
             if  (inputFile.isFile()){
                 System.out.println("Begin parsing file " + inputFile.toString());
-                //TODO add parsing logic here
+                //TODO add diagnostic messages
                 Parser p = new Parser(inputFile);
-                p.parse(true);
-                
+                List<String> ip_list = p.parse(false);
+                Checker chk = new Checker();
+                chk.check(ip_list, inputFile, true);
                 continue;
             } else if (prompt.trim().equalsIgnoreCase("EXIT")) {
                 System.out.println("Bye-bye!");

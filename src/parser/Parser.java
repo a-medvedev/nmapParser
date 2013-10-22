@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
 
 public class Parser {
     
-    private File inputFile = null, outputFile = null;
+    private File inputFile = null;
     public Parser(File f){
         inputFile = f;
     }
@@ -51,8 +51,8 @@ public class Parser {
                         IPmatches.add(ipMatcher.group());
                     }
                 }
-                if (toFile == true){
-                    outputFile = new File(inputFile.getAbsolutePath() + ".out");
+                if (toFile == true && IPmatches.size() > 0){
+                    File outputFile = new File(inputFile.getAbsolutePath() + ".parsed");
                     FileWriter outputWriter = new FileWriter(outputFile);
                     for (String ip : IPmatches){
                         outputWriter.write(ip + "\n");

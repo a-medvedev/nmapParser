@@ -26,6 +26,7 @@ public class Parser {
     
     public List<String> parse(boolean toFile){
         if (inputFile.isFile()){
+            System.out.println("Begin parsing file " + inputFile.toString());
             Scanner input;
             try {
                 input = new Scanner (inputFile);
@@ -59,6 +60,7 @@ public class Parser {
                     }
                     outputWriter.close();
                 }
+                System.out.println("Parsing done!");
                 return IPmatches;
             } catch (FileNotFoundException ex) {
                 System.out.println("File not found.");

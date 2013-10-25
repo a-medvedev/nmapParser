@@ -22,7 +22,7 @@ public class Launcher {
             File inputFile = new File(prompt);
             //System.out.println("+++ " + inputFile.toString() + " +++");
             if  (inputFile.isFile()){
-                System.out.println("Begin parsing file " + inputFile.toString());
+
                 //TODO add diagnostic messages
                 Parser p = new Parser(inputFile);
                 List<String> ip_list = p.parse(false);

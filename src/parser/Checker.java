@@ -11,11 +11,14 @@ import java.util.List;
 public class Checker {
     public List<String> check(List<String> IP_list, File input, boolean toFile){
         if (IP_list == null){
+            System.out.println("Nothing to check.");
             return null;
         }
+        System.out.println("Begin checking " + IP_list.size() + " addresses");
         URLConnection connection;
         URL url;
         StringBuilder url_builder;
+
         List<String> checked = new ArrayList<String>();
         for (String ip : IP_list){
             url_builder = new StringBuilder();
